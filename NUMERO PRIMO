@@ -1,0 +1,30 @@
+/* Ej nro:15
+Hacer un programa para ingresar un número positivo y calcular e informar si el mismo es un número primo.
+ Recordar que un número primo es un número natural que tiene exactamente dos divisores.
+*/
+
+#include <iostream>
+using namespace std;
+int main (){
+int numero,i;
+int contadorDeDivisores=0;
+cout<<"ingrese un numero"<<endl;
+cin>>numero;
+for(i=1;i<=numero;i++){
+    if(numero%i==0){
+        contadorDeDivisores++;
+    }
+}
+if(contadorDeDivisores==2 ){
+    cout<<"el numero "<< numero     <<" es primo "<<endl;
+
+}
+else{
+    cout<<"el numero " <<numero<<" no es primo"<<endl;
+}
+
+
+return 0;
+
+
+}
