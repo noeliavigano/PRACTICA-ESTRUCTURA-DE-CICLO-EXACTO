@@ -1,0 +1,33 @@
+/* Ej nro:Hacer un programa que muestre los números primos entre el 1 y el 10000.
+ El usuario no debe ingresar nada en este programa.
+
+*/
+
+#include <iostream>
+using namespace std;
+int main ()
+{
+    int x,i;
+    int contadorDeDivisores=0;
+    cout<<"Los numeros primos entre el 1 y el 10000 son"<<endl;
+
+    for(x=1; x<=1000; x++)
+    {
+        int contadorDeDivisores=0;
+        for(i=1; i<=x; i++)
+        {
+            if(x%i==0)
+            {
+                contadorDeDivisores++;
+            }
+        }
+
+        if(contadorDeDivisores==2)
+        {
+            cout<<" "<< x     <<" "<<endl;
+        }
+    }
+
+    return 0;
+
+}
