@@ -1,0 +1,76 @@
+/* Ej nro:17
+Una estación meteorológica registró una muestra climática de los últimos 15 días. Por cada día registró:
+Número de día (entero)
+Temperatura (float)
+Milímetros de lluvia (float)
+Visibilidad en km (float)
+
+Hay un registro por cada día. La información se encuentra ordenada por día. Se pide calcular e informar:
+El número de día que se haya registrado la temperatura máxima.X
+La amplitud térmica de todo el período.x
+La cantidad de días con neblina.
+Mostrar "Quincena lluviosa" si hubo más días de lluvia que días sin lluvia. Mostrar "Quincena húmeda" si llovió al menos un tercio de los días.
+De lo contrario mostrar "Quincena seca".
+
+NOTA: La amplitud térmica es la diferencia entre la temperatura máxima y la temperatura mínima.
+NOTA: Se considera neblina a una visibilidad menor a 2 km.
+
+*/
+
+#include <iostream>
+using namespace std;
+int main ()
+{
+    int dia,i,diaMaxima, contadorDeNeblina=0,contadorDeLluvia=0;
+    float temperatura, milimetrosDeLluvia,visibilidadEnKm;
+    float maxima,minima;
+    string mensaje;
+    for(i=1; i<=15; i++)
+    {
+        cout<<"ingrese temperatura del dia "<<i<<endl;
+        cin>>temperatura;
+        cout<<"milimetros de lluvia "<<endl;
+        cin>>milimetrosDeLluvia;
+        cout<<"visibilidad en km "<<endl;
+        cin>>visibilidadEnKm;
+
+        if(i==1||temperatura>=maxima)
+        {
+            maxima=temperatura;
+            diaMaxima=i;
+        }
+        if(i==1||temperatura<=minima)
+        {
+            minima=temperatura;
+        }
+        if(visibilidadEnKm<2)
+        {
+            contadorDeNeblina++;
+        }
+
+        if(milimetrosDeLluvia>0)
+        {
+            contadorDeLluvia++;
+        }
+    }
+
+    if(contadorDeLluvia>=8)
+    {
+        mensaje=" ---fue una quincena lluviosa ---";
+    }
+    else if(contadorDeLluvia>=5)
+    {
+        mensaje=" ---fue una quincena humedaa ---";
+    }
+    else
+    {
+        mensaje=" ---fue una quincena seca ---";
+    }
+
+    cout<<"El número de día que se ha registrado la temperatura máxima fue "<<diaMaxima<<endl;
+    cout<<"La amplitud térmica de todo el períodofue "<< maxima-minima<<endl;
+    cout<<"La cantidad de días con neblina. "<< contadorDeNeblina<<endl;
+    cout<<mensaje<<endl;
+    return 0;
+
+}
