@@ -1,0 +1,35 @@
+/* Ej nro:Encuentra dos valores maximos utilizando un contador i como contador de posiciones;
+*/
+
+#include <iostream>
+using namespace std;
+int main (){
+int numero,i,primerMayor,segundoMayor;
+cout<<"ingrese 10 numeros "<<endl;
+
+for(i=0;i<10;i++){
+    cin>>numero;
+    if(i==1){
+        primerMayor=numero;
+    }
+    else if(numero>primerMayor){
+        segundoMayor=primerMayor;
+    primerMayor=numero;
+    }
+    else if(i==2 ||numero>segundoMayor){
+        segundoMayor=numero;
+        }
+}
+
+cout<<"Primer mayor "<<primerMayor   <<endl;
+cout<<"Segundo mayor "<<segundoMayor  <<endl;
+
+
+
+
+
+
+
+return 0;
+
+}
