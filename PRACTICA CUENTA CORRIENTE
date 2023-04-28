@@ -1,0 +1,93 @@
+// Nombre: Noelia Vigano
+// Tp nro:3
+/* Ej nro:18
+La cuenta corriente ha registrado 14 movimientos durante la semana pasada. Por cada movimiento se registró:
+Número de movimiento
+Día
+Tipo ('E' - Extracción / 'D' - Depósito)
+Importe
+
+Existe un registro por movimiento. Se desea calcular e informar:
+El saldo final de la cuenta.*
+El porcentaje de movimientos de extracción y el porcentaje de depósito.
+El depósito de mayor importe indicando también día y número de movimiento.
+La cantidad de movimientos del día 10.
+*/
+
+#include <iostream>
+using namespace std;
+int main ()
+{
+    int i,numeroDeMovimiento,dia,diamayor,numeroMov,cantMov=0;
+    float porcDeposito,porcExtraccion,contadorDeExtracciones=0,contadorDeDeposito=0,contadorMovimientos=0;
+    float importe,mayorDeposito;
+    float saldoFinal;
+    char letra;
+
+    for(i=1; i<5; i++)
+    {
+        contadorMovimientos++;
+        cout<<"DIA "<<endl;
+        cin>>dia;
+        cout<<"Numero de movimiento"<<endl;
+        cin>>numeroDeMovimiento;
+        cout<<"TIPO DE MOVIMIENTO "<<endl;
+        cin>>letra;
+        cout<<"IMPORTE"<<endl;
+        cin>>importe;
+        if(dia==10)
+        {
+            cantMov++;
+        }
+        switch(letra)
+        {
+        case'D':
+            case'd':
+                    saldoFinal+=importe;
+            contadorDeDeposito++;
+
+
+            break;
+
+        case'E':
+            case'e':
+                    saldoFinal-=importe;
+            contadorDeExtracciones++;
+            break;
+        }
+
+        if(contadorDeDeposito==1 || importe>mayorDeposito)
+        {
+            mayorDeposito=importe;
+            diamayor=dia;
+            numeroMov=numeroDeMovimiento;
+        }
+    }
+
+
+    if(cantMov>0)
+    {
+        cout<<"El dia 10 hubo #"<<cantMov<<" movimientos"<<endl;
+    }
+    else
+    {
+        cout<<"El dia 10 NO HUBO MOVIMIENTOS #"<<endl;
+
+    }
+    if(contadorDeDeposito==0)
+    {
+        cout<<"NO HUBO DEPOSITOS EN LA ULTIMA SEMANA"<<endl;
+    }
+    else
+    {
+        cout<<"El dia  "<< diamayor<<" se registro el deposito mas alto en $ "<<mayorDeposito <<" correspondiente al numero de movimiento #"<< numeroMov<<endl;
+    }
+    porcDeposito=contadorDeDeposito*100/contadorMovimientos;
+    porcExtraccion=contadorDeExtracciones*100/contadorMovimientos;
+    cout<<"El saldo final de la cuenta es de $ "<< saldoFinal<<endl;
+    cout<<"El porcentaje de depositos fue %"<<porcDeposito<<"--- extraciones % "<< porcExtraccion<<endl;
+
+
+    return 0;
+
+}
