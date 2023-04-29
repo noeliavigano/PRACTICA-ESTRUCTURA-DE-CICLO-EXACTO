@@ -1,0 +1,59 @@
+/* Ej nro:Dada una lista de 10 números enteros. Calcular e informar el primer número par, el primer número primo.
+
+
+*/
+
+#include <iostream>
+using namespace std;
+#include <cstdlib>
+int main ()
+{
+int primerPrimo,primerPar, contadorDeDivisores;
+
+    int numero, i,x;
+    bool noHayPar=true;
+    bool noHayPrimo=true;
+    cout<<"ingrese un numero entero"<<endl;
+    for(x=0; x<10; x++){
+                cin>>numero;
+        contadorDeDivisores=0;
+        if((numero%2==0) && (noHayPar==true))
+        {
+            primerPar=numero;
+            noHayPar=false;
+        }
+
+
+        for(i=1; i<=numero; i++)
+        {
+            if(numero%i==0)
+            {
+                contadorDeDivisores++;
+            }
+        }
+        if((contadorDeDivisores==2) && (noHayPrimo==true))
+        {
+            primerPrimo=numero;
+            noHayPrimo=false;
+        }
+    }
+    if (noHayPar==true)
+    {
+        cout<<"No hay par "<<endl;
+    }
+    else
+    {
+        cout<<"primer par "<<primerPar<<endl;
+    }
+    if (noHayPrimo==true)
+    {
+        cout<<"No hay primo "<<endl;
+    }
+    else
+    {
+        cout<<"primer primo "<<primerPrimo<<endl;
+    }
+    system("pause");
+    return 0;
+
+}
